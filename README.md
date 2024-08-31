@@ -15,21 +15,33 @@ For ease run `install_dependencies.sh`(**insert link when generated**) to instal
 - Python 3.12 (I like to use pyenv(**insert link to github repo**) to manage different Python versions)
 - CMake: `sudo apt install cmake`
 - xelatex: `sudo apt install texlive-xetex`
-
+- pytest
+- 
 > `install_dependencies.sh` will download `pyenv` and install the proper version of Python with it. A virtualenv with this Python version is used to install all Python dependencies to not mess up the user's local machine. 
 
 ## Set Up
 - C++ code is compiled using `CMake` while Python 3 code is set up using the setup tools.
 ```bash
-mkdir build && cd build
-cmake ..
-make -j8
+mkdir build
+cmake -B build
+cmake --build build
 ```
 
 ## Roadmap
 
 - [x] Update README.md with initial description.
-- [ ] Create PyEnv environment for python test environment.
+- [x] Create PyEnv environment for python test environment.
 - [ ] Create `CMakeLists.txt` file for compiling C++ code.
+- [ ] Generate a latex `.tex` template for going through the complexity analysis math (and theory) of each problem.
+- Iterate until all LeetCode problems are solved:
+  - [ ] Generate README.md describing problem.
+  - [ ] Solve a problem with sample inputs and expected sample outputs in C++/Python.
+  - [ ] Write unit tests for each problem.
+  - [ ] Update `leetcode-problems.tex` with runtime and memory complexity analysis and theory if applicable.
+- Iterate until all HackerRank problems are solved:
+  - [ ] Generate README.md describing problem.
+  - [ ] Solve a problem with sample inputs and expected sample outputs in C++/Python.
+  - [ ] Write unit tests for each problem.
+  - [ ] Update `hackerrank-problems.tex` with runtime and memory complexity analysis and theory if applicable.
 
 

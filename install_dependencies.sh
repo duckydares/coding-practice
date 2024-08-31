@@ -10,7 +10,16 @@ sudo apt install -y clang \
     texlive-xetex \
     libreadline-dev \
     libbz2-dev \
-    libncurses-dev
+    libncurses-dev \
+    libgtest-dev \
+    googletest
+
+# Build gtest
+# TODO: Add condition in case we don't need to build this package
+cd /usr/src/gtest
+sudo cmake -Bbuild
+sudo cmake --build build
+sudo cp ./build/lib/libgtest* /usr/lib
 
 # Install PyEnv
 if ! command -v pyenv &> /dev/null; then
