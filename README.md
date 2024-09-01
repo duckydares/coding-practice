@@ -36,12 +36,17 @@ cmake --build build
 - Iterate until all LeetCode problems are solved:
   - [ ] Generate README.md describing problem.
   - [ ] Solve a problem with sample inputs and expected sample outputs in C++/Python.
+  - [ ] Update `CMakeLists.txt` to build and compile problem.
   - [ ] Write unit tests for each problem.
   - [ ] Update `leetcode-problems.tex` with runtime and memory complexity analysis and theory if applicable.
 - Iterate until all HackerRank problems are solved:
   - [ ] Generate README.md describing problem.
   - [ ] Solve a problem with sample inputs and expected sample outputs in C++/Python.
+  - [ ] Update `CMakeLists.txt` to build and compile problem.
   - [ ] Write unit tests for each problem.
   - [ ] Update `hackerrank-problems.tex` with runtime and memory complexity analysis and theory if applicable.
+- Iterate until all LeetCode problems are optimized:
+  - [ ] Formulate new algorithm to achieve optimal runtime and memory complexity.
+  - [ ] Compare results between optimized and initial solutions.
 
 
