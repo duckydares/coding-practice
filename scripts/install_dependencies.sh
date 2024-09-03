@@ -1,7 +1,8 @@
-#!/bin/env bash
+#!/bin/bash
 
 # This script installs the dependencies necessary for compiling and running the practice
 # problems contained in this repository.
+# Usage: . ./scripts/install_dependencies.sh
 
 # Debian dependencies
 sudo apt install -y clang \
@@ -17,7 +18,7 @@ sudo apt install -y clang \
 # Build gtest
 # TODO: Add condition in case we don't need to build this package
 cd /usr/src/gtest
-sudo cmake -Bbuild
+sudo cmake -B build
 sudo cmake --build build
 sudo cp ./build/lib/libgtest* /usr/lib
 

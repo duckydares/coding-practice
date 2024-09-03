@@ -33,6 +33,9 @@ cmake --build build
 - [x] Create PyEnv environment for python test environment.
 - [ ] Create `CMakeLists.txt` file for compiling C++ code.
 - [ ] Generate a latex `.tex` template for going through the complexity analysis math (and theory) of each problem.
+- [ ] Create `.github/workflows/.github-ci.yml` file for running unit tests through a pipeline.
+- [ ] Add doxygen based comments throughout the source code.
+- [ ] Lint code.
 - Iterate until all LeetCode problems are solved:
   - [ ] Generate README.md describing problem.
   - [ ] Solve a problem with sample inputs and expected sample outputs in C++/Python.
