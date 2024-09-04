@@ -23,7 +23,7 @@ namespace solution {
 
     class Solution {
         public:
-            template<typename T> void solution(input<T>* inputs);
             template<typename T> output<T>* solution(input<T>* input);
+            template<typename T> void solution(const output<T>*& output, input<T>* input);
     };
 }
