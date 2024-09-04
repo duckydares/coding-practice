@@ -57,3 +57,9 @@ template<>
 void Solution::inplace_solution(input<int>* inputs) {
     return;
 }
+
+// Fill in this solution as well if an inplace solution is required.
+template<>
+void Solution::inplace_solution(input<int>* inputs) {
+    return;
+}
