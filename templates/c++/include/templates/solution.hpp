@@ -10,24 +10,6 @@ using namespace std;
 namespace solution {
     
     template<typename T>
-    struct input {
-        size_t num_inputs;
-        vector<T> inputs;
-
-        // Default constructor
-        input<T>() {
-            num_inputs = 0;
-        }
-        // Constructor
-        input<T>(size_t num_inputs, vector<T> inputs): num_inputs(num_inputs), inputs(inputs) {}
-        // Copy Constructor
-        input<T>(const input<T>& input) {
-            num_inputs = input.num_inputs;
-            inputs = input.inputs;
-        }
-    };
-
-    template<typename T>
     struct output {
         size_t num_outputs;
         vector<T> outputs;
@@ -43,9 +25,27 @@ namespace solution {
             num_outputs = output.num_outputs;
             outputs = output.outputs;
         }
-        // Conversion Constructors
-        output<T>(const input<T>& input): num_outputs(input.num_inputs), outputs(input.inputs) {}
-        output<T>(const input<T>* const & input): num_outputs(input->num_inputs), outputs(input->inputs) {}
+    };
+    
+    template<typename T>
+    struct input {
+        size_t num_inputs;
+        vector<T> inputs;
+
+        // Default constructor
+        input<T>() {
+            num_inputs = 0;
+        }
+        // Constructor
+        input<T>(size_t num_inputs, vector<T> inputs): num_inputs(num_inputs), inputs(inputs) {}
+        // Copy Constructor
+        input<T>(const input<T>& input) {
+            num_inputs = input.num_inputs;
+            inputs = input.inputs;
+        }
+        // Conversion Constructor
+        input<T>(const output<T>& output): num_inputs(output.num_outputs), inputs(output.outputs) {}
+        input<T>(const output<T>* const & output): num_inputs(output->num_outputs), inputs(output->outputs) {}
     };
 
     class Solution {
