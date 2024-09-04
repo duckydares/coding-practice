@@ -5,7 +5,7 @@
 using namespace solution;
 
 template<>
-void Solution::solution(const output<int>*&, input<int>* inputs) {
+void Solution::solution(const output<int>*, input<int>* inputs) {
         // Initialize empty vector
         vector<int> merged_nums (0, inputs->num_inputs+(inputs + 1)->num_inputs);
 
@@ -49,11 +49,4 @@ void Solution::solution(const output<int>*&, input<int>* inputs) {
         }
         // Return results in first array
         inputs->inputs.swap(merged_nums);
-}
-
-template<>
-output<int>* Solution::solution(input<int>* inputs) {
-    // Unused
-    output<int> output;
-    return &output;
 }

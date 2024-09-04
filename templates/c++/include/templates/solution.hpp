@@ -48,7 +48,11 @@ namespace solution {
 
     class Solution {
         public:
-            template<typename T> output<T>* solution(input<T>* input);
-            template<typename T> void solution(const output<T>*& output, input<T>* input);
+            template<typename T> void solution(const output<T>* output, input<T>* input);
+            template<typename T> output<T>* solution(input<T>* input) {
+                output<T>* output = new solution::output<T>();
+                this->solution(output, input);
+                return output;
+            };
     };
 }
