@@ -1,4 +1,4 @@
-#include "templates/c++/include/solution.hpp"
+#include "templates/solution.hpp"
 
 using namespace std;
 
@@ -39,14 +39,14 @@ void test_case_2() {
 
 void test_case_3() {
     // Declar inputs
-    input<vector<int>> nums1;
-    input<vector<int>> nums2;
+    solution::input<vector<int>> nums1;
+    solution::input<vector<int>> nums2;
 
     solution::input<vector<int>> inputs[2] = {nums1, nums2};
     // Initalize inputs
 
     // Instantiate solver
-    Solution solver;
+    solution::Solution solver;
 
     // Solve problem
     solver.solution(inputs);

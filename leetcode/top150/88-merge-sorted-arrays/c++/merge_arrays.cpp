@@ -1,12 +1,9 @@
-#include "templates/c++/include/solution.hpp"
+#include "templates/solution.hpp"
 
 using namespace solution;
 
-// Define input/output structs
-
-Solution::Solution() {};
-
-void Solution::solution(input<vector<int>>* inputs) {
+template<>
+void Solution::solution(const output<vector<int>>*&, input<vector<int>>* inputs) {
         // Initialize empty vector
         vector<int> merged_nums (0, inputs->num_inputs+(inputs + 1)->num_inputs);
 
@@ -52,7 +49,8 @@ void Solution::solution(input<vector<int>>* inputs) {
         inputs->inputs.swap(merged_nums);
 }
 
-output<vector<int>> Solution::solution(inputs<vector<int>>* inputs) {
+template<>
+output<vector<int>>* Solution::solution(input<vector<int>>* inputs) {
     // Unused
     output<vector<int>> output;
     return output;
