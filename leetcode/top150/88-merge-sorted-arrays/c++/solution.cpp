@@ -4,6 +4,7 @@
 
 using namespace solution;
 
+// Fill in this solution if an inplace solution is not required.
 template<>
 void Solution::solution(output<int>* output, input<int>* inputs) {
         // Initialize empty vector
@@ -49,4 +50,10 @@ void Solution::solution(output<int>* output, input<int>* inputs) {
         }
         // Return results in first array
         output->outputs.swap(merged_nums);
+}
+
+// Fill in this solution as well if an inplace solution is required.
+template<>
+void Solution::inplace_solution(input<int>* inputs) {
+    return;
 }

@@ -43,7 +43,9 @@ namespace solution {
             num_outputs = output.num_outputs;
             outputs = output.outputs;
         }
-
+        // Conversion Constructors
+        output<T>(const input<T>& input): num_outputs(input.num_inputs), outputs(input.inputs) {}
+        output<T>(const input<T>* const & input): num_outputs(input->num_inputs), outputs(input->inputs) {}
     };
 
     class Solution {
@@ -54,5 +56,7 @@ namespace solution {
                 this->solution(output, input);
                 return output;
             };
+            // Inplace solution replaces the inputs with the outputs
+            template<typename T> void inplace_solution(input<T>* input);
     };
 }
