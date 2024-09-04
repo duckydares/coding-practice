@@ -8,7 +8,7 @@ if(NOT CMAKE_CXX_STANDARD)
 endif()
 
 # Add -Wall (shows all warnings) -g (debugging symbols) -Werror (warnings -> errors) -pedantic (warnings by ISO C++ rules) -Wextra (extra warnings) -03 (most expensive optimization vs 02/01)
-set(CMAKE_CXX_FLAGS "${CMAKE_CSS_FLAGS} -std=c++17 -Wall -g")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -Wall -g")
 
 add_subdirectory(templates)
 add_subdirectory(leetcode)
