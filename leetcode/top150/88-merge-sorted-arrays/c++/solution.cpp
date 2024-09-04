@@ -1,9 +1,11 @@
+
 #include "templates/solution.hpp"
+
 
 using namespace solution;
 
 template<>
-void Solution::solution(const output<vector<int>>*&, input<vector<int>>* inputs) {
+void Solution::solution(const output<int>*&, input<int>* inputs) {
         // Initialize empty vector
         vector<int> merged_nums (0, inputs->num_inputs+(inputs + 1)->num_inputs);
 
@@ -50,8 +52,8 @@ void Solution::solution(const output<vector<int>>*&, input<vector<int>>* inputs)
 }
 
 template<>
-output<vector<int>>* Solution::solution(input<vector<int>>* inputs) {
+output<int>* Solution::solution(input<int>* inputs) {
     // Unused
-    output<vector<int>> output;
-    return output;
+    output<int> output;
+    return &output;
 }

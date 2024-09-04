@@ -6,10 +6,10 @@ using namespace std;
 
 void test_case_1() {
     // Declare inputs
-    solution::input<vector<int>> nums1;
-    solution::input<vector<int>> nums2;
+    solution::input<int> nums1;
+    solution::input<int> nums2;
 
-    solution::input<vector<int>> inputs[2] = {nums1, nums2};
+    solution::input<int> inputs[2] = {nums1, nums2};
 
     // Initalize inputs
 
@@ -23,10 +23,10 @@ void test_case_1() {
 
 void test_case_2() {
     // Declar inputs
-    solution::input<vector<int>> nums1;
-    solution::input<vector<int>> nums2;
+    solution::input<int> nums1;
+    solution::input<int> nums2;
 
-    solution::input<vector<int>> inputs[2] = {nums1, nums2};
+    solution::input<int> inputs[2] = {nums1, nums2};
 
     // Initalize inputs
 
@@ -39,10 +39,10 @@ void test_case_2() {
 
 void test_case_3() {
     // Declar inputs
-    solution::input<vector<int>> nums1;
-    solution::input<vector<int>> nums2;
+    solution::input<int> nums1;
+    solution::input<int> nums2;
 
-    solution::input<vector<int>> inputs[2] = {nums1, nums2};
+    solution::input<int> inputs[2] = {nums1, nums2};
     // Initalize inputs
 
     // Instantiate solver
