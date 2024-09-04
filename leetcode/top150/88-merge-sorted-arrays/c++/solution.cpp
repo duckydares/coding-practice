@@ -1,9 +1,12 @@
+
 #include "templates/solution.hpp"
+
 
 using namespace solution;
 
+// Fill in this solution if an inplace solution is not required.
 template<>
-void Solution::solution(const output<vector<int>>*&, input<vector<int>>* inputs) {
+void Solution::solution(output<int>* output, input<int>* inputs) {
         // Initialize empty vector
         vector<int> merged_nums (0, inputs->num_inputs+(inputs + 1)->num_inputs);
 
@@ -46,12 +49,11 @@ void Solution::solution(const output<vector<int>>*&, input<vector<int>>* inputs)
             }
         }
         // Return results in first array
-        inputs->inputs.swap(merged_nums);
+        output->outputs.swap(merged_nums);
 }
 
+// Fill in this solution as well if an inplace solution is required.
 template<>
-output<vector<int>>* Solution::solution(input<vector<int>>* inputs) {
-    // Unused
-    output<vector<int>> output;
-    return output;
+void Solution::inplace_solution(input<int>* inputs) {
+    return;
 }

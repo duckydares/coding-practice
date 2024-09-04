@@ -31,7 +31,8 @@ cmake --build build
 
 - [x] Update README.md with initial description.
 - [x] Create PyEnv environment for python test environment.
-- [ ] Create `CMakeLists.txt` file for compiling C++ code.
+- [x] Create `CMakeLists.txt` file for compiling C++ code.
+- [ ] Include logging capabilities using [`spdlog`](https://github.com/gabime/spdlog).
 - [ ] Generate a latex `.tex` template for going through the complexity analysis math (and theory) of each problem.
 - [ ] Create `.github/workflows/.github-ci.yml` file for running unit tests through a pipeline.
 - [ ] Add doxygen based comments throughout the source code.
