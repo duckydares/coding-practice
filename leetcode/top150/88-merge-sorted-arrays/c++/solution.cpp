@@ -1,7 +1,6 @@
 
 #include "templates/solution.hpp"
 
-
 using namespace solution;
 
 // Fill in this solution if an inplace solution is not required.
