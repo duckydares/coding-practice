@@ -27,12 +27,19 @@ cmake -B build
 cmake --build build
 ```
 
+## Testing
+The C++ tests use `GTest` to determine if the functions perform properly while `pytest` is used for the Python solutions.
+```bash
+cd build
+ctest
+```
+
 ## Roadmap
 
 - [x] Update README.md with initial description.
 - [x] Create PyEnv environment for python test environment.
 - [x] Create `CMakeLists.txt` file for compiling C++ code.
-  - [ ] Update to include `gtest` and modify `main.cpp` to use gtest.
+  - [x] Update to include `gtest` and modify `main.cpp` to use gtest.
 - [ ] Include logging capabilities using [`spdlog`](https://github.com/gabime/spdlog).
   - [ ] Report time it took for a function to run in `main.cpp`.
 - [ ] Generate a latex `.tex` template for going through the complexity analysis math (and theory) of each problem.
