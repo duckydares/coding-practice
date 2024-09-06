@@ -17,7 +17,11 @@ For ease run `install_dependencies.sh`(**insert link when generated**) to instal
 - xelatex: `sudo apt install texlive-xetex`
 - pytest
 
+<<<<<<< HEAD
 > `install_dependencies.sh` will download `pyenv` and install the proper version of Python with it. A virtualenv with this Python version is used to install all Python dependencies to not mess up the user's local machine. Make sure to point PYTHONPATH to this site-package if it's not using it automatically.
+=======
+> `install_dependencies.sh` will download `pyenv` and install the proper version of Python with it. A virtualenv with this Python version is used to install all Python dependencies to not mess up the user's local machine. 
+>>>>>>> 8af96f9... Completed build and unit test set up, failed test though
 
 ## Set Up
 - C++ code is compiled using `CMake` while Python 3 code is set up using the setup tools.
