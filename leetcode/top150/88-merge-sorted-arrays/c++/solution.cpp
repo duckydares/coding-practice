@@ -48,7 +48,8 @@ void Solution::solution(output<int>* output, input<int>* inputs) {
             }
         }
         // Return results in first array
-        output->outputs.swap(merged_nums);
+        output->outputs = merged_nums;
+        output->num_outputs = merged_nums.size();
 }
 
 // Fill in this solution as well if an inplace solution is required.
