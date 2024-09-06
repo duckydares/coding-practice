@@ -25,6 +25,15 @@ namespace solution {
             num_outputs = output.num_outputs;
             outputs = output.outputs;
         }
+
+        // For testing comparisons
+        bool operator==(output<T>& output) {
+            if (num_outputs != output.num_outputs)
+                return false;
+            if (outputs != output.outputs)
+                return false;
+            return true;
+        }
     };
     
     template<typename T>

@@ -16,7 +16,7 @@ For ease run `install_dependencies.sh`(**insert link when generated**) to instal
 - CMake: `sudo apt install cmake`
 - xelatex: `sudo apt install texlive-xetex`
 - pytest
-- 
+
 > `install_dependencies.sh` will download `pyenv` and install the proper version of Python with it. A virtualenv with this Python version is used to install all Python dependencies to not mess up the user's local machine. 
 
 ## Set Up
@@ -32,7 +32,9 @@ cmake --build build
 - [x] Update README.md with initial description.
 - [x] Create PyEnv environment for python test environment.
 - [x] Create `CMakeLists.txt` file for compiling C++ code.
+  - [ ] Update to include `gtest` and modify `main.cpp` to use gtest.
 - [ ] Include logging capabilities using [`spdlog`](https://github.com/gabime/spdlog).
+  - [ ] Report time it took for a function to run in `main.cpp`.
 - [ ] Generate a latex `.tex` template for going through the complexity analysis math (and theory) of each problem.
 - [ ] Create `.github/workflows/.github-ci.yml` file for running unit tests through a pipeline.
 - [ ] Add doxygen based comments throughout the source code.
