@@ -1,6 +1,9 @@
 *.out
 *.log
 *.aux
+*.fls
+*.fdb_latexmk
+*.synctex.gz
 build/
 __pycache__/
 .pytest_cache/

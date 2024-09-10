@@ -1,0 +1,44 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{latexsym,amsfonts,amssymb,amsthm,amsmath}
+
+\setlength{\parindent}{0in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{8.8in}
+\setlength{\topmargin}{0in}
+\setlength{\headheight}{18pt}
+
+
+
+\title{LeetCode Practice Problems}
+\author{Ducky Dares}
+
+\begin{document}
+
+\maketitle
+
+% \vspace{0.5in}
+
+\raggedright
+\subsection*{Top 150 Problems}
+\subsubsection*{88 - Merge Sorted Arrays - Easy}
+
+\paragraph{Time Complexity} \hfill \break
+\textit{Optimal:} $O(m+n)$.\\
+
+The problem states that we have two arrays $\alpha$, $\beta$ of different sizes $m$ and $n$. In my initial implementation we sort the arrays in an OR
+while loop that updates indexes $i$ and $j$ up to $m$ and $n$, respectively. Since $\alpha$ and $\beta$ are operated on $m$ and $n$ times each the total number of
+operations is $O(m + n)$.\\
+
+\textit{Current Implementation:} $O(m + n)$.\\
+
+\paragraph{Space Complexity} \hfill \break
+\textit{Optimal:} $O(1)$.\\
+
+I create a new array $\gamma$ that takes up $O(m + n)$ space and we can ignore the input space from arrays $\alpha$ and $\beta$ since we are concerned about auxillary memory usage.
+This is the highest order term that exists in the in algorithm and therefore presents the worst case. It is possible to have this function work on the input arrays making 
+the optimal memory usage constant resulting in $O(1)$.\\
+\textit{Current Implementation:} $O(m + n)$.\\
+\end{document}
