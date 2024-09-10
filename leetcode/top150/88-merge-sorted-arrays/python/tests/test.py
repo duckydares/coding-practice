@@ -1,5 +1,3 @@
-import os
-import sys
 from python.solution import Solution
 
 def test_solution_case1():
@@ -9,8 +7,8 @@ def test_solution_case1():
     nums1 = [1,2,3]
     nums2 = [2,5,6]
     # Create solver
-    solver = Solution([m, n, nums1, nums2])
-    output = solver.solution
+    solver = Solution(m, n, nums1, nums2)
+    output = solver.solution()
 
     assert output == [1,2,2,3,5,6], f'Solution is {output}'
 
@@ -21,10 +19,10 @@ def test_solution_case2():
     nums1 = [1]
     nums2 = []
     # Create solver
-    solver = Solution([m, n, nums1, nums2])
-    output = solver.solution
-
-    assert output == [1], f'Solution is {output}'
+    solver = Solution(m, n, nums1, nums2)
+    output = solver.solution()
+    solver.logger.info(f'Output is {output}')
+    assert output == [1]
 
 def test_solution_case3():
     # Inputs
@@ -33,8 +31,8 @@ def test_solution_case3():
     nums1 = []
     nums2 = [1]
     # Create solver
-    solver = Solution([m, n, nums1, nums2])
-    output = solver.solution
+    solver = Solution(m, n, nums1, nums2)
+    output = solver.solution()
 
     assert output == [1], f'Solution is {output}'
 

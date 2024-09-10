@@ -1,5 +1,7 @@
 import logging
-
+logging.basicConfig(level=logging.DEBUG,
+                    format='%(asctime)s -%(name)s - %(levelname)s - %(messages)s')
+                    
 class SolutionBase:
 
     def __init__(self, *inputs):
