@@ -57,6 +57,8 @@ namespace solution {
         input<T>(const output<T>* const & output): num_inputs(output->num_outputs), inputs(output->outputs) {}
     };
 
+    // template <typename T>
+    // TODO Consider minimizing this to template the class and get rid of the structs
     class Solution {
         public:
             template<typename T> void solution(output<T>* output, input<T>* input);

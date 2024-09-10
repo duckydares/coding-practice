@@ -1,7 +1,7 @@
 # Coding Practice
 A repository containing various coding practice problems along with corresponding theory.
 
-The coding practice problems are taken from [LeetCode](https://leetcode.com/) and [HackerRank](https://www.hackerrank.com/). Since my main languages of interest are C++ and Python, I provide solutions for each.
+The coding practice problems are taken from [LeetCode](https://leetcode.com/) and [HackerRank](https://www.hackerrank.com/). Since my main languages of interest are C++ and Python, I provide solutions for each to demonstrate coding completency.
 
 ## Organization
 
@@ -17,7 +17,7 @@ For ease run `install_dependencies.sh`(**insert link when generated**) to instal
 - xelatex: `sudo apt install texlive-xetex`
 - pytest
 
-> `install_dependencies.sh` will download `pyenv` and install the proper version of Python with it. A virtualenv with this Python version is used to install all Python dependencies to not mess up the user's local machine. 
+> `install_dependencies.sh` will download `pyenv` and install the proper version of Python with it. A virtualenv with this Python version is used to install all Python dependencies to not mess up the user's local machine. Make sure to point PYTHONPATH to this site-package if it's not using it automatically.
 
 ## Set Up
 - C++ code is compiled using `CMake` while Python 3 code is set up using the setup tools.
@@ -33,6 +33,15 @@ The C++ tests use `GTest` to determine if the functions perform properly while `
 cd build
 ctest
 ```
+
+For `pytest` make sure that the current repository is in the `PYTHONPATH`:
+```bash
+export PYTHONPATH="${HOME}/path/to/repo:${PYTHONPATH}"
+pytest -v
+```
+
+## Reasoning
+The main objective of this repository is to demonstrate proficiency in both languages which guided some of the architectural decisions. There is no need to have created a `solution_base` in the Python solutions; however, it demonstrates understanding of inheritance.
 
 ## Roadmap
 
