@@ -12,7 +12,7 @@ def test_solution_case1():
     solver = Solution([m, n, nums1, nums2])
     output = solver.solution
 
-    assert output == [1,2,2,3,5,6]
+    assert output == [1,2,2,3,5,6], f'Solution is {output}'
 
 def test_solution_case2():
     # Inputs
@@ -24,7 +24,7 @@ def test_solution_case2():
     solver = Solution([m, n, nums1, nums2])
     output = solver.solution
 
-    assert output == [1]
+    assert output == [1], f'Solution is {output}'
 
 def test_solution_case3():
     # Inputs
@@ -36,5 +36,5 @@ def test_solution_case3():
     solver = Solution([m, n, nums1, nums2])
     output = solver.solution
 
-    assert output == [1]
+    assert output == [1], f'Solution is {output}'
 
