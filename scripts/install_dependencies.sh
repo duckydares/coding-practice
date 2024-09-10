@@ -43,3 +43,4 @@ pyenv virtualenv 3.12.0 coding-practice
 pyenv activate coding-practice
 # Install python dependencies
 pip3 install -r requirements.txt
+
