@@ -37,7 +37,7 @@ ctest
 For `pytest` make sure that the current repository is in the `PYTHONPATH`:
 ```bash
 export PYTHONPATH="${HOME}/path/to/repo:${PYTHONPATH}"
-pytest -v
+./scripts/pytest_all.sh
 ```
 
 ## Reasoning
@@ -51,7 +51,7 @@ The main objective of this repository is to demonstrate proficiency in both lang
   - [x] Update to include `gtest` and modify `main.cpp` to use gtest.
 - [ ] Include logging capabilities using [`spdlog`](https://github.com/gabime/spdlog).
   - [ ] Report time it took for a function to run in `main.cpp`.
-- [ ] Generate a latex `.tex` template for going through the complexity analysis math (and theory) of each problem.
+- [x] Generate a latex `.tex` template for going through the complexity analysis math (and theory) of each problem.
 - [ ] Create `.github/workflows/.github-ci.yml` file for running unit tests through a pipeline.
 - [ ] Add doxygen based comments throughout the source code.
 - [ ] Lint code.

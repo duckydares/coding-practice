@@ -1,4 +1,3 @@
-from xml.etree.ElementPath import find
 # Demonstrative file showing how to install these packages
 # with:
 # python3 setup.py sdist bdist_wheel
