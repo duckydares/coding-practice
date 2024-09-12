@@ -2,72 +2,63 @@
 
 // This header provides a generic Solution class with templated solution functions
 // and input/output structures.
-
+#include <memory>
+#include <tuple>
 #include <vector>
 
 using namespace std;
 
 namespace solution {
     
-    template<typename T>
+    template<typename... args>
     struct output {
-        size_t num_outputs;
-        vector<T> outputs;
+        tuple<args...> outputs;
 
-        //Default Constructor
-        output<T>() {
-            num_outputs = 0;
-        }
-        // Constructor
-        output<T>(size_t num_outputs, vector<T> outputs): num_outputs(num_outputs), outputs(outputs) {}
+        //Constructor
+        output(args... args) : outputs(args){}
         // Copy Constructor
-        output<T>(const output<T>& output) {
-            num_outputs = output.num_outputs;
+        output(const output<args...>& output) {
+            // TODO Check that tuple types match
             outputs = output.outputs;
         }
 
         // For testing comparisons
-        bool operator==(output<T>& output) {
-            if (num_outputs != output.num_outputs)
-                return false;
-            if (outputs != output.outputs)
-                return false;
-            return true;
+        bool operator==(output<args...>& output) {
+            // TODO
+            return false;
         }
     };
     
-    template<typename T>
+    template<typename... args>
     struct input {
-        size_t num_inputs;
-        vector<T> inputs;
+        tuple<args...> inputs;
 
-        // Default constructor
-        input<T>() {
-            num_inputs = 0;
-        }
         // Constructor
-        input<T>(size_t num_inputs, vector<T> inputs): num_inputs(num_inputs), inputs(inputs) {}
+        input(args... args) : inputs(args) {}
         // Copy Constructor
-        input<T>(const input<T>& input) {
-            num_inputs = input.num_inputs;
+        input(const input<args...>& input) {
+            // TODO Check that tuple types match
             inputs = input.inputs;
         }
         // Conversion Constructor
-        input<T>(const output<T>& output): num_inputs(output.num_outputs), inputs(output.outputs) {}
-        input<T>(const output<T>* const & output): num_inputs(output->num_outputs), inputs(output->outputs) {}
+        input(const output<args...>& output) : inputs(output.outputs) {}
+        input(const output<args...>* const & output) : inputs(output->outputs) {}
     };
 
-    // template <typename T>
-    // TODO Consider minimizing this to template the class and get rid of the structs
+    // TODO Convert everything to smart pointers to ensure memory safety and automatic cleanup
+    template <typename I, typename O>
     class Solution {
         public:
-            template<typename T> void solution(output<T>* output, input<T>* input);
-            template<typename T> output<T>* solution(input<T>* input) {
-                output<T>* output = new solution::output<T>();
+            void solution(vector<shared_ptr<O>> output, vector<shared_ptr<I>> input);
+            vector<shared_ptr<O>> solution(vector<shared_ptr<I>> input) {
+                vector<shared_ptr<O>> output;
+                for (auto a : input) {
+                    output.push_back(std::make_shared<O>());
+                }
                 this->solution(output, input);
                 return output;
             };
             // Inplace solution replaces the inputs with the outputs
-            template<typename T> void inplace_solution(input<T>* input);
+            void inplace_solution(vector<shared_ptr<I>> input);
     };
 }
