@@ -59,8 +59,11 @@ void Solution::solution(std::vector<std::shared_ptr<output<std::vector<int>>>>& 
         outputs[0]->outputs.swap(merged_nums);
 }
 
+
+// template<>
+// std::vector<std::shared_ptr<output<std::vector<int>>>> Solution::solution(int n_outputs, )
 // Fill in this solution as well if an inplace solution is required.
-template<>
+template <>
 void Solution::inplace_solution(std::vector<std::shared_ptr<input<int, std::vector<int>>>>& inputs) {
     return;
 }
