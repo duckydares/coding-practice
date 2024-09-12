@@ -6,16 +6,18 @@
 #include <tuple>
 #include <vector>
 
-using namespace std;
-
 namespace solution {
     
     template<typename... args>
     struct output {
-        tuple<args...> outputs;
+        std::tuple<args...> outputs;
+
+        // Default Constructor
+        output() : outputs() {}
 
         //Constructor
-        output(args... args) : outputs(args){}
+        output(args... outputs) : outputs(outputs...){}
+
         // Copy Constructor
         output(const output<args...>& output) {
             // TODO Check that tuple types match
@@ -31,34 +33,44 @@ namespace solution {
     
     template<typename... args>
     struct input {
-        tuple<args...> inputs;
+        std::tuple<args...> inputs;
+
+        // Default Constructor
+        input() : inputs() {}
 
         // Constructor
-        input(args... args) : inputs(args) {}
+        input(args... inputs) : inputs(inputs...) {}
+
         // Copy Constructor
         input(const input<args...>& input) {
             // TODO Check that tuple types match
             inputs = input.inputs;
         }
+
         // Conversion Constructor
         input(const output<args...>& output) : inputs(output.outputs) {}
         input(const output<args...>* const & output) : inputs(output->outputs) {}
     };
 
-    // TODO Convert everything to smart pointers to ensure memory safety and automatic cleanup
-    template <typename I, typename O>
     class Solution {
         public:
-            void solution(vector<shared_ptr<O>> output, vector<shared_ptr<I>> input);
-            vector<shared_ptr<O>> solution(vector<shared_ptr<I>> input) {
-                vector<shared_ptr<O>> output;
-                for (auto a : input) {
-                    output.push_back(std::make_shared<O>());
+            // Template for computing the solution of a given problem with arbitrary inputs and outputs
+            template <typename... out, typename... in> 
+            void solution(std::vector<std::shared_ptr<output<out...>>>& outputs,
+                          std::vector<std::shared_ptr<input<in...>>>& inputs);
+
+            // Returns a vector of shared_ptrs to the output assuming n_outputs != inputs.size() at all times
+            template <typename... out, typename... in>
+            std::vector<std::shared_ptr<output<out...>>> solution(int n_outputs, std::vector<std::shared_ptr<input<in...>>>& inputs) {
+                std::vector<std::shared_ptr<output<out...>>> outputs;
+                for (int i = 0; i < n_outputs; ++i) {
+                    outputs.push_back(std::make_shared<output<out...>>());
                 }
-                this->solution(output, input);
-                return output;
+                this->solution(outputs, inputs);
+                return outputs;
             };
+
             // Inplace solution replaces the inputs with the outputs
-            void inplace_solution(vector<shared_ptr<I>> input);
+            template <typename... in> void inplace_solution(std::vector<std::shared_ptr<input<in...>>>& inputs);
     };
 }
