@@ -54,7 +54,7 @@ namespace solution {
 
     class Solution {
         public:
-            // Template for computing the solution of a given problem with arbitrary inputs and outputs
+            // Template for computing the solution of a given problem with arbitrary input and output types
             template <typename... out, typename... in> 
             void solution(std::vector<std::shared_ptr<output<out...>>>& outputs,
                           std::vector<std::shared_ptr<input<in...>>>& inputs);
