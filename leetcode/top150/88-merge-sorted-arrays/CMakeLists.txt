@@ -14,4 +14,4 @@ add_executable(merge_sorted_arrays c++/tests/test.cpp)
 target_link_libraries(merge_sorted_arrays PRIVATE merge_solution gtest gtest_main -pthread)
 
 # Add test to use with ctest -V
-add_test(NAME test_merge_sorted_arrays COMMAND merge_sorted_arrays)
+add_test(NAME merge_sorted_arrays COMMAND merge_sorted_arrays)
