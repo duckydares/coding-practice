@@ -24,17 +24,16 @@ void Solution::solution(std::vector<std::shared_ptr<output<std::vector<int>>>>& 
         int j = 0;
 
         // Loop through both arrays based on order
-        while (i < nums1.size() || 
-               j < nums2.size()) {
+        while (i < m || j < n) {
             // Break conditions
-            if (i == nums1.size()) {
-                for (int k = j; k < nums2.size(); ++k) {
+            if (i == m) {
+                for (int k = j; k < n; ++k) {
                     std::get<0>(merged_nums).push_back(nums2[k]);
                 }
                 break;
             }
-            else if (j == nums2.size()) {
-                for (int k = i; k < nums1.size(); ++k) {
+            else if (j == n) {
+                for (int k = i; k < m; ++k) {
                     std::get<0>(merged_nums).push_back(nums1[k]);
                 }
                 break;
