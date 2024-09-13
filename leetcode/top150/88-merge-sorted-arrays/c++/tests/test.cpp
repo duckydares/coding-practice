@@ -19,7 +19,9 @@ TEST(merge_sorted_arrays, test_case_1) {
 
     // Solve problem
     auto result = solver.solution<std::vector<int>>(1, inputs);
+    solver.inplace_solution<int, std::vector<int>>(inputs);
     EXPECT_EQ(std::get<0>(result[0]->outputs), std::get<0>(expected.outputs));
+    EXPECT_EQ(std::get<1>(inputs[0]->inputs), std::get<0>(expected.outputs));
 };
 
 TEST(merge_sorted_arrays, test_case_2) {
@@ -39,7 +41,9 @@ TEST(merge_sorted_arrays, test_case_2) {
 
     // Solve problem
     auto result = solver.solution<std::vector<int>>(1, inputs);
+    solver.inplace_solution<int, std::vector<int>>(inputs);
     EXPECT_EQ(std::get<0>(result[0]->outputs), std::get<0>(expected.outputs));
+    EXPECT_EQ(std::get<1>(inputs[0]->inputs), std::get<0>(expected.outputs));
 };
 
 TEST(merge_sorted_arrays, test_case_3) {
@@ -59,7 +63,9 @@ TEST(merge_sorted_arrays, test_case_3) {
 
     // Solve problem
     auto result = solver.solution<std::vector<int>>(1, inputs);
+    solver.inplace_solution<int, std::vector<int>>(inputs);
     EXPECT_EQ(std::get<0>(result[0]->outputs), std::get<0>(expected.outputs));
+    EXPECT_EQ(std::get<1>(inputs[0]->inputs), std::get<0>(expected.outputs));
 }
 
 int main(int argc, char** argv) {

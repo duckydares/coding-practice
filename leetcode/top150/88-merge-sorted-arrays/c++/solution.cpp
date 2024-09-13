@@ -62,7 +62,34 @@ void Solution::solution(std::vector<std::shared_ptr<output<std::vector<int>>>>& 
 // template<>
 // std::vector<std::shared_ptr<output<std::vector<int>>>> Solution::solution(int n_outputs, )
 // Fill in this solution as well if an inplace solution is required.
+/*
+This solution returns the solution into the referenced input variable reducing the auxillary memory to O(1)
+*/
 template <>
 void Solution::inplace_solution(std::vector<std::shared_ptr<input<int, std::vector<int>>>>& inputs) {
+    // Iterator
+    int i = 0;
+    
+    // Loop through nums1 array since nums1.size() >= nums2.size() always
+    for (auto it = std::get<1>(inputs[0]->inputs).begin(); 
+         it != std::get<1>(inputs[0]->inputs).end(); ++it) {
+             // Break condition
+             if (i == std::get<0>(inputs[1]->inputs)) {
+                 return;
+             }
+             // Insert nums2[j] if <= to current iterator
+             if (std::get<1>(inputs[1]->inputs)[i] <= *it) {
+                 std::get<1>(inputs[0]->inputs).insert(it, std::get<1>(inputs[1]->inputs)[i]);
+                 ++i;
+             }
+         }
+    // Check that i != 0 otherwise push back all elements of nums2 into nums1 since nums2[i] > nums1[j] for all 0 < i < n, 0 < j < m
+    if (i == 0) {
+        auto it = std::get<1>(inputs[0]->inputs).begin();
+        it = it + std::get<0>(inputs[0]->inputs);
+        for (; i < std::get<0>(inputs[1]->inputs); ++i) {
+            std::get<1>(inputs[0]->inputs).push_back(std::get<1>(inputs[1]->inputs)[i]);
+        }
+    }
     return;
 }
