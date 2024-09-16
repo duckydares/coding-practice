@@ -10,7 +10,6 @@ class Solution(SolutionBase):
         """Expected input order: m, n, nums1, nums2"""
         output = []
         # Max potential size of array
-        max_size = self.inputs[0] + self.inputs[1]
         i = 0
         j = 0
         
