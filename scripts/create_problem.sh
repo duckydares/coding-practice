@@ -39,19 +39,23 @@ done
 # TODO implement checks on inputs to error out properly
 problem_path="$source/$group/$problem"
 
+echo "Creating directory: $problem_path"
 mkdir -p $problem_path
 
 # Sync template space to new problem space
-rsync -i -r --exclude ../templates/c++/include/*.hpp \
-    --exclude ../templates/python/solution.py \
-    --exclude ../templates/CMakeLists.txt \
-    ../templates/* $problem_path
+echo "Copying templates into the problem space"
+rsync -i -r --exclude='c++/include/' \
+    --exclude='python/solution.py' \
+    --exclude='CMakeLists.txt' \
+    --exclude='__pycache__/' \
+    --exclude='python/__pycache__' \
+    templates/* $problem_path
 
-mv $problem_path/.CMakeLists.txt $problem_path/CMakeLists.txt
+mv $problem_path/tempList.txt $problem_path/CMakeLists.txt
 
 # Modify problem name
-problem=${$problem//-/_} # Substitute all - for _
-problem=${$problem#\d+_} # Remove problem # from front
+problem=$(echo "$problem" | perl -pe 's/\d+-//g') # Remove problem # from front
+problem=$(echo "$problem" | perl -pe 's/-/_/g') # Substitute all - for _
 
 # Replace template_name with problem
 sed -i "s/template_name/$problem/g" $problem_path/CMakeLists.txt
