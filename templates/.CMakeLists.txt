@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project()
+project(template_name)
 
 # Add a library target with definitions
 add_library(${PROJECT_NAME}_solution STATIC c++/solution.cpp)

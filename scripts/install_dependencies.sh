@@ -13,7 +13,8 @@ sudo apt install -y clang \
     libbz2-dev \
     libncurses-dev \
     libgtest-dev \
-    googletest
+    googletest \
+    rsync
 
 # Build gtest
 # TODO: Add condition in case we don't need to build this package
@@ -31,16 +32,22 @@ if ! command -v pyenv &> /dev/null; then
     echo 'command -v pyenv > /dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
     echo 'eval "$(pyenv init -)"' >> ~/.bashrc
     echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
+else
+    echo "pyenv is already installed"
 fi
 
 # Restart shell for effects to take place
 exec $SHELL
 # Installing Python 3.12.0
+echo "Installing Python 3.12.0 with pyenv"
 pyenv install 3.12.0
 # Create virtualenv based on 3.12.0
+echo "Creating virtualenv from Python 3.12.0"
 pyenv virtualenv 3.12.0 coding-practice
 # Enter virtualenv
+echo "Activating virtualenv coding-practice"
 pyenv activate coding-practice
 # Install python dependencies
+echo "Installing python dependencies"
 pip3 install -r requirements.txt
 
