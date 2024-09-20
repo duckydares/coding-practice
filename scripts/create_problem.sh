@@ -3,7 +3,7 @@
 # This script creates the directory structure for a practice problem based on the template directory
 # Usage: ./script/create_problem.sh -s leetcode -g top150 -p ###-problem-name
 
-if [ $# -ne 3]; then
+if [ $# -ne 3 ]; then
     echo "Usage:"
     echo "./script/create_problem.sh -hlt -s source -g group -p problem"
     echo "-s [source]: the top-level directory name"
@@ -37,10 +37,25 @@ while getopts 'g:hlp:s:t' flag; do
 done
 
 # TODO implement checks on inputs to error out properly
+
+# If source DNE create CMakelists.txt
+if [ ! -d "$source" ]; then
+    echo "Creating $source directory"
+    mkdir $source
+    touch $source/CMakeLists.txt
+    echo "cmake_minimum_required(VERSION 3.16)" >> $source/CMakeLists.txt
+    echo "project($source)" >> $source/CMakeLists.txt
+    echo "add_subdirectory($group/$problem)" >> $source/CMakeLists.txt
+fi
+
 problem_path="$source/$group/$problem"
 
 echo "Creating directory: $problem_path"
 mkdir -p $problem_path
+
+# Add subdirectory to source CMakeLists.txt
+echo "Adding subdirectory to $source/CMakeLists.txt"
+echo "add_subdirectory($group/$problem)" >> $source/CMakeLists.txt
 
 # Sync template space to new problem space
 echo "Copying templates into the problem space"
@@ -49,7 +64,11 @@ rsync -i -r --exclude='c++/include/' \
     --exclude='CMakeLists.txt' \
     --exclude='__pycache__/' \
     --exclude='python/__pycache__' \
+    --exclude='__init__.py' \
     templates/* $problem_path
+
+# Update __init__.py
+echo "from python.solution import Solution" > $problem_path/python/__init__.py
 
 mv $problem_path/tempList.txt $problem_path/CMakeLists.txt
 

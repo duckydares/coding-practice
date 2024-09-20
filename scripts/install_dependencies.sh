@@ -14,7 +14,8 @@ sudo apt install -y clang \
     libncurses-dev \
     libgtest-dev \
     googletest \
-    rsync
+    rsync \
+    perl
 
 # Build gtest
 # TODO: Add condition in case we don't need to build this package
