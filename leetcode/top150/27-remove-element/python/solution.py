@@ -21,5 +21,3 @@ class Solution(SolutionBase):
         
         self.logger.info(f'Output is {c}')
         return c
-
-        
