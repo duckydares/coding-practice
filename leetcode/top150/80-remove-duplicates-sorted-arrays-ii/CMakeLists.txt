@@ -1,0 +1,17 @@
+cmake_minimum_required(VERSION 3.16)
+
+project(remove_duplicates_sorted_arrays_ii)
+
+# Add a library target with definitions
+add_library(${PROJECT_NAME}_solution STATIC c++/solution.cpp)
+
+# Link header-only library to solutions library
+target_link_libraries(${PROJECT_NAME}_solution PUBLIC templates)
+
+add_executable(${PROJECT_NAME} c++/tests/test.cpp)
+
+# Link solution definitions to test
+target_link_libraries(${PROJECT_NAME} PRIVATE ${PROJECT_NAME}_solution gtest gtest_main -pthread)
+
+# Add test to use with ctest -V
+add_test(NAME ${PROJECT_NAME} COMMAND ${PROJECT_NAME})
