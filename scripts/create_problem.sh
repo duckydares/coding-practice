@@ -70,7 +70,9 @@ rsync -i -r --exclude='c++/include/' \
 # Update __init__.py
 echo "from python.solution import Solution" > $problem_path/python/__init__.py
 
+# Update names of files
 mv $problem_path/tempList.txt $problem_path/CMakeLists.txt
+mv $problem_path/python/temp_solution.py $problem_path/python/solution.py
 
 # Modify problem name
 problem=$(echo "$problem" | perl -pe 's/\d+-//g') # Remove problem # from front
